@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Libas Wafia — Women's Clothing Store, Bashundhara</title>
+  <link rel="icon" href="assets/logo.jpg">
+  <meta name="description" content="Libas Wafia online shop: three piece, kurti, abaya, hijab, saree and kids wear. Cash on delivery all over Bangladesh.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Hind+Siliguri:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <span>🚚 Cash on delivery all over Bangladesh</span>
+    <span class="hide-sm">Free delivery on orders over ৳5,000</span>
+    <a href="tel:" id="topPhone">📞 Call to order</a>
+  </div>
+
+  <header class="header">
+    <div class="wrap header-inner">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <a href="#/" class="logo">
+        <img class="logo-mark" src="assets/logo.jpg" alt="Libas Wafia logo" width="44" height="44">
+        <span class="logo-text">Libas <em>Wafia</em></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#/">Home</a>
+        <a href="#/shop">Shop</a>
+        <div class="nav-cats" id="navCats"></div>
+        <a href="#/track">Track Order</a>
+        <a href="#/about">About</a>
+        <a href="#/contact">Contact</a>
+      </nav>
+      <form class="search" id="searchForm" role="search">
+        <input type="search" id="searchInput" placeholder="Search products…" aria-label="Search products">
+      </form>
+      <div class="header-actions">
+        <a href="#/wishlist" class="icon-btn" aria-label="Wishlist">♡<span class="badge" id="wishCount">0</span></a>
+        <button class="icon-btn" id="cartBtn" aria-label="Open cart">👜<span class="badge" id="cartCount">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="wrap" tabindex="-1"></main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="logo footer-logo"><img class="logo-mark" src="assets/logo.jpg" alt="Libas Wafia logo" width="44" height="44"><span class="logo-text">Libas <em>Wafia</em></span></div>
+        <p>Modest and traditional fashion for women and kids. Carefully chosen fabrics, honest prices, delivered to your door.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <div id="footerCats"></div>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <a href="#/track">Track your order</a>
+        <a href="#/policy">Delivery & Returns</a>
+        <a href="#/contact">Contact us</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a id="fbLink" target="_blank" rel="noopener">Facebook</a>
+        <a id="msgLink" target="_blank" rel="noopener">Messenger</a>
+        <a id="waLink" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="wrap copyright">© <span id="year"></span> Libas Wafia. All rights reserved.</div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Your Bag</h3>
+      <button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot" id="cartFoot"></div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
