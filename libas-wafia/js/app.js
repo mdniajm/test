@@ -145,8 +145,7 @@
       ${t.disc ? `<div class="row"><span>Discount (${esc(coupon)})</span><b>−${money(t.disc)}</b></div>` : ""}
       <p class="muted">${left > 0 ? `Add ${money(left)} more for <b>free delivery</b>.` : "🎉 You've unlocked free delivery!"} Delivery is calculated at checkout.</p>
       <a class="btn block" href="#/checkout">Checkout</a>
-      <button class="btn ghost block" style="margin-top:8px" id="waOrder">Order on WhatsApp</button>`;
-    $("#waOrder").onclick = () => window.open(waHref(orderText()), "_blank");
+      <a class="btn ghost block" style="margin-top:8px" target="_blank" rel="noopener" href="${waHref(orderText())}">Order on WhatsApp</a>`;
   }
   function orderText(order) {
     const lines = (order ? order.items : cart).map(l => {
