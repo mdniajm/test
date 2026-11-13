@@ -2,85 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Libas Wafia — Women's Clothing Store, Bashundhara</title>
   <link rel="icon" href="assets/logo.jpg">
   <meta name="description" content="Libas Wafia online shop: three piece, kurti, abaya, hijab, saree and kids wear. Cash on delivery all over Bangladesh.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Hind+Siliguri:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Hind+Siliguri:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="topbar">
-    <span>🚚 Cash on delivery all over Bangladesh</span>
-    <span class="hide-sm">Free delivery on orders over ৳5,000</span>
-    <a href="tel:" id="topPhone">📞 Call to order</a>
-  </div>
-
-  <header class="header">
+  <header class="header" id="header">
     <div class="wrap header-inner">
-      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
-      <a href="#/" class="logo">
-        <img class="logo-mark" src="assets/logo.jpg" alt="Libas Wafia logo" width="44" height="44">
-        <span class="logo-text">Libas <em>Wafia</em></span>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <a href="#/" class="logo" aria-label="Libas Wafia home">
+        <img class="logo-mark" src="assets/logo.jpg" alt="" width="40" height="40">
+        <span class="logo-text">LIBAS<b>WAFIA</b></span>
       </a>
-      <nav class="nav" id="nav">
+      <nav class="nav" id="nav" aria-label="Main">
+        <div class="nav-head"><span class="logo-text">LIBAS<b>WAFIA</b></span><button class="icon-btn" id="closeNav" aria-label="Close menu">✕</button></div>
         <a href="#/">Home</a>
-        <a href="#/shop">Shop</a>
+        <a href="#/shop">Shop all</a>
         <div class="nav-cats" id="navCats"></div>
-        <a href="#/track">Track Order</a>
-        <a href="#/about">About</a>
+        <a href="#/shop?sort=new">New in</a>
+        <a href="#/track">Track order</a>
         <a href="#/contact">Contact</a>
       </nav>
       <form class="search" id="searchForm" role="search">
-        <input type="search" id="searchInput" placeholder="Search products…" aria-label="Search products">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="search" id="searchInput" placeholder="Search abaya, kurti, three piece…" aria-label="Search products">
       </form>
       <div class="header-actions">
-        <a href="#/wishlist" class="icon-btn" aria-label="Wishlist">♡<span class="badge" id="wishCount">0</span></a>
-        <button class="icon-btn" id="cartBtn" aria-label="Open cart">👜<span class="badge" id="cartCount">0</span></button>
+        <a href="#/wishlist" class="icon-btn hide-mob" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span class="badge" id="wishCount"></span>
+        </a>
+        <button class="icon-btn" id="cartBtn" aria-label="Open bag">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span class="badge" id="cartCount"></span>
+        </button>
       </div>
     </div>
   </header>
 
-  <main id="app" class="wrap" tabindex="-1"></main>
+  <main id="app" tabindex="-1"></main>
 
   <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
-        <div class="logo footer-logo"><img class="logo-mark" src="assets/logo.jpg" alt="Libas Wafia logo" width="44" height="44"><span class="logo-text">Libas <em>Wafia</em></span></div>
-        <p>Modest and traditional fashion for women and kids. Carefully chosen fabrics, honest prices, delivered to your door.</p>
+    <div class="wrap">
+      <div class="footer-cta">
+        <h2>Questions? <span>We reply fast.</span></h2>
+        <div class="footer-cta-btns">
+          <a class="btn light" id="footWa" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          <a class="btn outline-light" id="footFb" target="_blank" rel="noopener">Follow on Facebook</a>
+        </div>
       </div>
-      <div>
-        <h4>Shop</h4>
-        <div id="footerCats"></div>
+      <div class="footer-grid">
+        <div>
+          <p class="footer-about">Modest and traditional fashion for women, handpicked in Bashundhara, Dhaka and delivered across Bangladesh.</p>
+          <p class="footer-contact" id="footContact"></p>
+        </div>
+        <div><h4>Shop</h4><div id="footerCats"></div></div>
+        <div>
+          <h4>Help</h4>
+          <a href="#/track">Track your order</a>
+          <a href="#/policy">Delivery & exchange</a>
+          <a href="#/about">About us</a>
+          <a href="#/contact">Contact</a>
+        </div>
       </div>
-      <div>
-        <h4>Help</h4>
-        <a href="#/track">Track your order</a>
-        <a href="#/policy">Delivery & Returns</a>
-        <a href="#/contact">Contact us</a>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <a id="fbLink" target="_blank" rel="noopener">Facebook</a>
-        <a id="msgLink" target="_blank" rel="noopener">Messenger</a>
-        <a id="waLink" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
+      <div class="wordmark" aria-hidden="true">LIBAS WAFIA</div>
+      <div class="copyright">© <span id="year"></span> Libas Wafia · Bashundhara, Dhaka</div>
     </div>
-    <div class="wrap copyright">© <span id="year"></span> Libas Wafia. All rights reserved.</div>
   </footer>
+
+  <!-- Mobile app-style bottom bar -->
+  <nav class="tabbar" aria-label="Quick">
+    <a href="#/" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Home</a>
+    <a href="#/shop" data-tab="shop"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="4" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="13" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="13" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Shop</a>
+    <a href="#/wishlist" data-tab="wishlist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Saved</a>
+    <button id="tabCart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Bag<span class="badge" id="tabCartCount"></span></button>
+    <a id="tabWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Chat</a>
+  </nav>
+
+  <a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8c-1-.4-1.8-1.2-2.2-2.2l.8-1-1-2z" fill="currentColor"/></svg>
+    <span>Order on WhatsApp</span>
+  </a>
 
   <!-- Cart drawer -->
   <div class="overlay" id="overlay"></div>
-  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping bag" aria-hidden="true">
     <div class="drawer-head">
-      <h3>Your Bag</h3>
-      <button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button>
+      <h3>Your bag <span id="drawerCount"></span></h3>
+      <button class="icon-btn" id="closeCart" aria-label="Close bag">✕</button>
     </div>
     <div class="drawer-body" id="cartItems"></div>
     <div class="drawer-foot" id="cartFoot"></div>
   </aside>
+
+  <!-- Quick view -->
+  <div class="modal" id="quickView" role="dialog" aria-modal="true" aria-label="Quick view" hidden>
+    <div class="modal-card" id="quickViewBody"></div>
+  </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
