@@ -8,7 +8,7 @@
   <meta name="description" content="Libas Wafia online shop: three piece, kurti, abaya, hijab, saree and kids wear. Cash on delivery all over Bangladesh.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Hind+Siliguri:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&family=Rozha+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,11 +18,11 @@
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
       <a href="#/" class="logo" aria-label="Libas Wafia home">
-        <img class="logo-mark" src="assets/logo.jpg" alt="" width="40" height="40">
-        <span class="logo-text">LIBAS<b>WAFIA</b></span>
+        <img class="logo-mark" src="assets/logo.jpg" alt="" width="42" height="42">
+        <span class="logo-words"><span class="bn">লিবাস ওয়াফিয়া</span><span class="en">Libas Wafia</span></span>
       </a>
       <nav class="nav" id="nav" aria-label="Main">
-        <div class="nav-head"><span class="logo-text">LIBAS<b>WAFIA</b></span><button class="icon-btn" id="closeNav" aria-label="Close menu">✕</button></div>
+        <div class="nav-head"><span class="bn">লিবাস ওয়াফিয়া</span><button class="icon-btn" id="closeNav" aria-label="Close menu">✕</button></div>
         <a href="#/">Home</a>
         <a href="#/shop">Shop all</a>
         <div class="nav-cats" id="navCats"></div>
@@ -32,7 +32,7 @@
       </nav>
       <form class="search" id="searchForm" role="search">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <input type="search" id="searchInput" placeholder="Search abaya, kurti, three piece…" aria-label="Search products">
+        <input type="search" id="searchInput" placeholder="Search abaya, kurti…" aria-label="Search products">
       </form>
       <div class="header-actions">
         <a href="#/wishlist" class="icon-btn hide-mob" aria-label="Wishlist">
@@ -45,22 +45,16 @@
         </button>
       </div>
     </div>
+    <div class="tape" aria-hidden="true"><div class="tape-track" id="tapeTrack"></div></div>
   </header>
 
   <main id="app" tabindex="-1"></main>
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-cta">
-        <h2>Questions? <span>We reply fast.</span></h2>
-        <div class="footer-cta-btns">
-          <a class="btn light" id="footWa" target="_blank" rel="noopener">Chat on WhatsApp</a>
-          <a class="btn outline-light" id="footFb" target="_blank" rel="noopener">Follow on Facebook</a>
-        </div>
-      </div>
       <div class="footer-grid">
         <div>
-          <p class="footer-about">Modest and traditional fashion for women, handpicked in Bashundhara, Dhaka and delivered across Bangladesh.</p>
+          <p class="footer-about">Modest and traditional clothing for women, chosen piece by piece in Bashundhara, Dhaka and delivered across Bangladesh.</p>
           <p class="footer-contact" id="footContact"></p>
         </div>
         <div><h4>Shop</h4><div id="footerCats"></div></div>
@@ -71,9 +65,15 @@
           <a href="#/about">About us</a>
           <a href="#/contact">Contact</a>
         </div>
+        <div>
+          <h4>Talk to us</h4>
+          <a id="footWa" target="_blank" rel="noopener">WhatsApp</a>
+          <a id="footFb" target="_blank" rel="noopener">Facebook</a>
+          <a id="footMsg" target="_blank" rel="noopener">Messenger</a>
+        </div>
       </div>
-      <div class="wordmark" aria-hidden="true">LIBAS WAFIA</div>
-      <div class="copyright">© <span id="year"></span> Libas Wafia · Bashundhara, Dhaka</div>
+      <div class="wordmark" aria-hidden="true">লিবাস ওয়াফিয়া</div>
+      <div class="copyright"><span>© <span id="year"></span> Libas Wafia</span><span>Bashundhara · Dhaka · Bangladesh</span></div>
     </div>
   </footer>
 
