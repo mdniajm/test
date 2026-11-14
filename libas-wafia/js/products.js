@@ -9,12 +9,12 @@
  *   pattern: placeholder fabric print — "floral" | "paisley" | "dots" | "stripe" | "check" | "lattice" | "leaf" | "plain"
  */
 window.CATEGORIES = [
-  { slug: "three-piece", name: "Three Piece", bn: "থ্রি পিস" },
-  { slug: "kurti", name: "Kurti & Tops", bn: "কুর্তি" },
-  { slug: "abaya", name: "Abaya & Borka", bn: "বোরকা" },
-  { slug: "hijab", name: "Hijab & Scarf", bn: "হিজাব" },
-  { slug: "saree", name: "Saree", bn: "শাড়ি" },
-  { slug: "kids", name: "Kids", bn: "কিডস" }
+  { slug: "three-piece", name: "Three Piece" },
+  { slug: "kurti", name: "Kurti & Tops" },
+  { slug: "abaya", name: "Abaya & Borka" },
+  { slug: "hijab", name: "Hijab & Scarf" },
+  { slug: "saree", name: "Saree" },
+  { slug: "kids", name: "Kids" }
 ];
 
 window.PRODUCTS = [

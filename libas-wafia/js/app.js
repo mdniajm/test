@@ -29,7 +29,7 @@
   const money = n => S.currency + Math.round(n).toLocaleString("en-IN");
   const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const byId = id => P.find(p => p.id === Number(id));
-  const cat = slug => C.find(c => c.slug === slug) || { name: slug, bn: "" };
+  const cat = slug => C.find(c => c.slug === slug) || { name: slug };
   const priceOf = p => p.salePrice || p.price;
   const offOf = p => p.salePrice ? Math.round((1 - p.salePrice / p.price) * 100) : 0;
   const telHref = "tel:" + S.phone.replace(/[^\d+]/g, "");
@@ -181,7 +181,7 @@
     $("#drawerCount").textContent = n ? `(${n})` : "";
     const body = $("#cartItems"), foot = $("#cartFoot");
     if (!cart.length) {
-      body.innerHTML = `<div class="empty"><span class="bn">ব্যাগ খালি</span><h3>Your bag is empty</h3><p>Nothing on the counter yet.</p><a class="btn" href="#/shop">Browse the rail ${ICON.arrow}</a></div>`;
+      body.innerHTML = `<div class="empty"><h3>Your bag is empty</h3><p>Nothing on the counter yet.</p><a class="btn" href="#/shop">Browse the rail ${ICON.arrow}</a></div>`;
       foot.innerHTML = ""; return;
     }
     const t = totals();
@@ -262,7 +262,7 @@
       </div>
       <div class="tagline">
         <div class="ptag">
-          <span class="sku"><span>${esc(p.sku)}</span><span class="bn">${esc(cat(p.category).bn)}</span></span>
+          <span class="sku"><span>${esc(p.sku)}</span><span>${esc(cat(p.category).name)}</span></span>
           <a class="card-title" href="#/product/${p.id}">${esc(p.name)}</a>
           ${priceHTML(p)}
         </div>
@@ -294,7 +294,7 @@
       <div class="made">Made with care · Bashundhara, Dhaka</div>
     </div>`;
   }
-  const secHead = (bn, en, right = "") => `<div class="sec-head"><div class="sec-title"><span class="bn">${bn}</span><h2 class="display">${en}</h2></div><span class="rule"></span>${right}</div>`;
+  const secHead = (title, right = "") => `<div class="sec-head"><div class="sec-title"><h2 class="display">${title}</h2></div><span class="rule"></span>${right}</div>`;
 
   function home() {
     const tabs = {
@@ -308,11 +308,11 @@
         <div class="wrap">
           <div class="hero-top">
             <div>
-              <p class="bn-title">লিবাস ওয়াফিয়া</p>
+              <p class="hero-name">Libas Wafia</p>
               <h1 class="display">Clothes that keep <em>their promise.</em></h1>
             </div>
             <div class="hero-side">
-              <p class="meaning"><b>Libas</b> (লিবাস): clothing.<br><b>Wafia</b> (ওয়াফিয়া): faithful.<br>Three piece, abaya, kurti and hijab, chosen by hand in Bashundhara and delivered across Bangladesh.</p>
+              <p class="meaning"><b>Libas</b>: clothing.<br><b>Wafia</b>: faithful.<br>Three piece, abaya, kurti and hijab, chosen by hand in Bashundhara and delivered across Bangladesh.</p>
               <div class="hero-cta">
                 <a class="btn light" href="#/shop">Browse the rail ${ICON.arrow}</a>
                 <a class="btn ghost-light" href="#/shop?cat=abaya">Abaya & borka</a>
@@ -329,16 +329,16 @@
       </section>
 
       <section class="section wrap">
-        ${secHead("কাপড় বেছে নিন", "Pick a fabric", `<a class="link" href="#/shop">All ${P.length} styles</a>`)}
+        ${secHead("Pick a fabric", `<a class="link" href="#/shop">All ${P.length} styles</a>`)}
         <div class="swatches">${C.map(c => {
           const sample = P.find(p => p.category === c.slug && p.featured) || P.find(p => p.category === c.slug);
           const n = P.filter(p => p.category === c.slug).length;
-          return `<a class="swatch" href="#/shop?cat=${c.slug}"><div class="cloth">${art(sample, "fabric")}</div><div class="lbl"><b>${esc(c.name)}</b><span class="bn">${c.bn}</span></div><span class="n">${n} style${n === 1 ? "" : "s"}</span></a>`;
+          return `<a class="swatch" href="#/shop?cat=${c.slug}"><div class="cloth">${art(sample, "fabric")}</div><div class="lbl"><b>${esc(c.name)}</b></div><span class="n">${n} style${n === 1 ? "" : "s"}</span></a>`;
         }).join("")}</div>
       </section>
 
       <section class="section wrap">
-        ${secHead("এই সপ্তাহে", "On the rail this week", `<div class="tabs" role="tablist" id="homeTabs">
+        ${secHead("On the rail this week", `<div class="tabs" role="tablist" id="homeTabs">
             <button type="button" role="tab" class="on" data-tab="best">Bestsellers</button>
             <button type="button" role="tab" data-tab="new">New in</button>
             <button type="button" role="tab" data-tab="sale">On sale</button>
@@ -349,7 +349,6 @@
       <section class="offer">
         <div class="wrap offer-inner">
           <div>
-            <span class="bn">প্রথম অর্ডারে ছাড়</span>
             <h2 class="display">Ten percent off your first order.</h2>
             <p>New to Libas Wafia? Sew this patch onto your first order: add the code at checkout and 10% comes off.</p>
             <div class="hero-cta" style="margin-top:22px"><a class="btn light" href="#/shop">Start shopping ${ICON.arrow}</a></div>
@@ -364,10 +363,10 @@
       </section>
 
       <section class="section wrap">
-        ${secHead("কীভাবে অর্ডার করবেন", "How ordering works")}
+        ${secHead("How ordering works")}
         <div class="counter">
           <div class="slip">
-            <div class="slip-head"><span class="bn">অর্ডার স্লিপ</span><span>No. LW-____</span></div>
+            <div class="slip-head"><span class="slip-title">Order slip</span><span>No. LW-____</span></div>
             <ol>
               <li><div><b>Pick your style and size</b><span>Not sure about the size? Ask us on WhatsApp and we'll measure it for you.</span></div></li>
               <li><div><b>Place the order</b><span>Check out here in a minute, or send the order on WhatsApp. We call to confirm.</span></div></li>
@@ -379,11 +378,11 @@
         </div>
       </section>
 
-      ${recent.length ? `<section class="section wrap">${secHead("আবার দেখুন", "You looked at these")}${grid(recent)}</section>` : ""}
+      ${recent.length ? `<section class="section wrap">${secHead("You looked at these")}${grid(recent)}</section>` : ""}
 
       <section class="follow wrap">
         <div class="follow-inner">
-          <div><span class="bn">নতুন কালেকশন সবার আগে</span><p>New pieces go up on our Facebook page first.</p></div>
+          <div><h2 class="display">New pieces go up on Facebook first.</h2><p>Follow the page to see them before anyone else.</p></div>
           <a class="btn dark" href="${S.facebook}" target="_blank" rel="noopener">Follow on Facebook ${ICON.arrow}</a>
         </div>
       </section>`;
@@ -409,7 +408,6 @@
     return `
       <section class="page-head"><div class="wrap">
         <div class="crumbs"><a href="#/">Home</a> / Shop${c ? " / " + esc(cat(c).name) : ""}</div>
-        <span class="bn">${term ? "খুঁজুন" : c ? esc(cat(c).bn) : "সব পণ্য"}</span>
         <h1 class="display">${title}</h1>
         <div class="chips">
           <a class="chip ${!c ? "on" : ""}" href="${link({ cat: "" })}">All<span>${P.length}</span></a>
@@ -435,7 +433,7 @@
             </select>
           </div>
         </div>
-        ${list.length ? grid(list) : `<div class="empty"><span class="bn">কিছু পাওয়া যায়নি</span><h3>Nothing on this rail</h3><p>Try another category or clear your filters.</p><a class="btn" href="#/shop">See all products</a></div>`}
+        ${list.length ? grid(list) : `<div class="empty"><h3>Nothing on this rail</h3><p>Try another category or clear your filters.</p><a class="btn" href="#/shop">See all products</a></div>`}
       </div>`;
   }
 
@@ -457,8 +455,7 @@
             <div class="main-shot" id="mainShot">${art(p)}</div>
           </div>
           <div class="pdp-info">
-            <span class="bn-cat">${esc(cat(p.category).bn)}</span>
-            <span class="kicker" style="margin-left:10px">${esc(p.sku)}</span>
+            <span class="kicker"><span style="color:var(--red)">${esc(cat(p.category).name)}</span> · ${esc(p.sku)}</span>
             <h1 class="display">${esc(p.name)}</h1>
             <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">${priceHTML(p)}${p.salePrice ? `<span class="save">You save ${money(p.price - p.salePrice)}</span>` : ""}</div>
             <div class="stock ${st[0]}">${st[1]}</div>
@@ -483,14 +480,14 @@
             </div>
           </div>
         </div>
-        <section class="section">${secHead("একই রকম আরও", "More from this rail")}${grid(more)}</section>
+        <section class="section">${secHead("More from this rail")}${grid(more)}</section>
       </div>
       <div class="sticky-buy" id="stickyBuy"><div class="p">${money(priceOf(p))}<small>${esc(p.name)}</small></div><button type="button" class="btn" id="stickyAdd" ${out ? "disabled" : ""}>Add to bag</button></div>`;
   }
 
   function wishlist() {
     const list = wish.map(byId).filter(Boolean);
-    return `<section class="page-head"><div class="wrap" style="padding-bottom:26px"><span class="bn">পছন্দের তালিকা</span><h1 class="display">Saved for later</h1></div></section>
+    return `<section class="page-head"><div class="wrap" style="padding-bottom:26px"><h1 class="display">Saved for later</h1></div></section>
       <div class="wrap" style="padding-top:40px">${list.length ? grid(list) :
         `<div class="empty"><h3>No saved styles yet</h3><p>Tap the heart on any product to keep it here.</p><a class="btn" href="#/shop">Browse the rail ${ICON.arrow}</a></div>`}</div>`;
   }
@@ -498,7 +495,7 @@
   const DISTRICTS = ["Dhaka", "Gazipur", "Narayanganj", "Chattogram", "Cox's Bazar", "Cumilla", "Feni", "Noakhali", "Sylhet", "Moulvibazar", "Rajshahi", "Bogura", "Pabna", "Khulna", "Jashore", "Kushtia", "Barishal", "Patuakhali", "Rangpur", "Dinajpur", "Mymensingh", "Tangail", "Jamalpur", "Faridpur", "Other"];
 
   function checkout() {
-    if (!cart.length) return `<div class="wrap empty"><span class="bn">ব্যাগ খালি</span><h3>Your bag is empty</h3><p>Add something you love first.</p><a class="btn" href="#/shop">Go to shop ${ICON.arrow}</a></div>`;
+    if (!cart.length) return `<div class="wrap empty"><h3>Your bag is empty</h3><p>Add something you love first.</p><a class="btn" href="#/shop">Go to shop ${ICON.arrow}</a></div>`;
     const draft = store.get("draft", {});
     const ship = draft.shipping || "inside_dhaka", pay = draft.payment || "cod";
     const t = totals(ship);
@@ -508,7 +505,6 @@
         <div class="crumbs" style="padding-top:22px"><a href="#/">Home</a> / Checkout</div>
         <form class="checkout" id="checkoutForm" novalidate>
           <div class="panel">
-            <span class="bn" style="color:var(--red);font-size:28px;line-height:1.1">ডেলিভারির ঠিকানা</span>
             <h2>Checkout</h2>
             <h3><i>1</i>Delivery details</h3>
             <div class="fields">
@@ -584,7 +580,6 @@
     const idx = { pending: 0, confirmed: 1, shipped: 2, delivered: 3 }[o.status] || 0;
     return `<div class="confirm wrap">
       <div class="confirm-head">
-        <span class="bn">ধন্যবাদ!</span>
         <h1 class="display">Thank you, ${esc(o.customer.name.split(" ")[0])}.</h1>
         <p class="muted">Order <b style="color:var(--ink)">#${o.id}</b> is in. We'll call <b style="color:var(--ink)">${esc(o.customer.phone)}</b> to confirm.</p>
       </div>
@@ -610,7 +605,6 @@
     const mine = store.get("orders", []);
     if (id && mine.find(x => x.id === id)) return orderView(id);
     return `<div class="page wrap">
-      <span class="bn">অর্ডার ট্র্যাক</span>
       <h1 class="display">Track your order</h1>
       <p class="muted">Enter the order number from your confirmation, e.g. LW1234567.</p>
       <form id="trackForm" class="coupon"><input id="trackId" name="id" placeholder="Order number" value="${esc(id)}" required><button class="btn">Track</button></form>
@@ -619,13 +613,13 @@
     </div>`;
   }
 
-  const pageHead = (bn, t) => `<span class="bn">${bn}</span><h1 class="display">${t}</h1>`;
-  const about = () => `<div class="page wrap">${pageHead("আমাদের কথা", "About Libas Wafia")}
+  const pageHead = t => `<h1 class="display">${t}</h1>`;
+  const about = () => `<div class="page wrap">${pageHead("About Libas Wafia")}
     <p><b>Libas</b> means attire, and <b>Wafia</b> means faithful. We're a women's clothing store based in ${esc(S.location)}. We bring you modest, elegant and comfortable clothing at honest prices.</p>
     <h2>What we offer</h2><p>Three piece sets, kurtis, abayas and borkas, hijabs, sarees and festive wear. We choose every piece for its fabric, finish and fit.</p>
     <h2>Our promise</h2><p>What you see is what you get. Check your parcel in front of the delivery person, and we'll happily exchange sizes within 3 days.</p>
     <a class="btn" href="#/shop">Browse the rail ${ICON.arrow}</a></div>`;
-  const contact = () => `<div class="page wrap">${pageHead("যোগাযোগ", "Contact us")}
+  const contact = () => `<div class="page wrap">${pageHead("Contact us")}
     <p class="muted">Questions about a product, size or order? Message us and a real person will reply.</p>
     <div class="contact-cards">
       <div><span class="kicker">Call</span><b>${esc(S.phone)}</b><button type="button" class="copy" data-copy="${esc(S.phone)}">Copy number</button></div>
@@ -633,7 +627,7 @@
       <a href="${S.messenger}" target="_blank" rel="noopener"><span class="kicker">Messenger</span><b>Libas Wafia →</b><span class="muted small">Facebook page</span></a>
     </div>
     <p><b>Email:</b> ${esc(S.email)} <button type="button" class="copy" data-copy="${esc(S.email)}" style="margin:0 0 0 6px;background:var(--stone)">Copy</button><br><b>Location:</b> ${esc(S.location)}</p></div>`;
-  const policy = () => `<div class="page wrap">${pageHead("ডেলিভারি ও এক্সচেঞ্জ", "Delivery & exchange")}
+  const policy = () => `<div class="page wrap">${pageHead("Delivery & exchange")}
     <h2>Delivery charges</h2><p>${S.shipping.map(z => `${z.label}: <b>${money(z.cost)}</b>`).join("<br>")}<br>Free delivery on orders over <b>${money(S.freeShippingOver)}</b>.</p>
     <h2>Delivery time</h2><p>Inside Dhaka: 1–2 working days. Outside Dhaka: 2–4 working days.</p>
     <h2>Payment</h2><p>${S.payments.map(p => `<b>${p.label}</b>: ${esc(p.note)}`).join("<br>")}</p>
